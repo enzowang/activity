@@ -4,9 +4,9 @@ module.exports = {
 	checkAccount: function (request,reponse) {
         stuModal.checkAccount(request.body,function (err,data) {
         	if(data.length > 0){
-        		reponse.send(data);
+        		reponse.send({code:200,data:data});
         	}else{
-        		reponse.send("login-fail");
+        		reponse.send({code:400,data:"logfail"});
         	}
         });
     }

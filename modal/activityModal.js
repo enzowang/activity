@@ -29,8 +29,8 @@ module.exports = {
 		saveActivity:function (params,urlParams,callback){
 			console.log(params,urlParams);
 			var start = (urlParams.page - 1) * urlParams.size;
-			var sql = 'SELECT COUNT(*) FROM activity; SELECT * FROM activity limit ' + start + ',' + urlParams.size; 
-			sqlPool.connect(sql, function (error, results) {
+			var sql = 'INSERT INTO users SET ?'; 
+			sqlPool.connect(sql,params,function (error, results) {
 				console.log(results);
 				
 
